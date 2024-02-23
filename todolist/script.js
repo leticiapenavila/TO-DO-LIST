@@ -1,24 +1,29 @@
+
+// inicialização
 let tarefas = prompt('Digite aqui suas tarefas');
 let adicionarMais = confirm('Deseja adicionar mais tarefas?');
 
+
+// Usando While para o loop de opções
 while (adicionarMais) {
   let acao = prompt('O que deseja fazer? (adicionar/editar/remover)');
-  
+// usando if else para decidir as ações
   if (acao.toLowerCase() === 'adicionar') {
     let maisTarefas = prompt('Digite mais tarefas');
     tarefas += ', ' + maisTarefas;
   } else if (acao.toLowerCase() === 'editar') {
-
+// caso o usuário deseje editar, precisa escrever "editar" e inserir a palavra para editar e depois digitar a nova tarefa.
     let tarefaParaEditar = prompt('Qual tarefa você deseja editar?');
     tarefas = tarefas.replace(tarefaParaEditar, prompt('Digite a nova tarefa'));
+    // mais um else if criado para mais uma ação, que consiste em remover alguma tarefa.
   } else if (acao.toLowerCase() === 'remover') {
     let tarefaParaRemover = prompt('Qual tarefa você deseja remover?');
     tarefas = tarefas.replace(tarefaParaRemover + ',', '').trim();
   }
-
+// ação criada para quando o usuário conclui o "adicionar tarefa", "editar" ou "remover".
   adicionarMais = confirm('Deseja realizar mais alguma ação?');
 }
-
+// caso o usuário não queira realizar mais alguma ação, ele encerra as ações escolhidas.
 alert(`Suas tarefas: ${tarefas}`); 
 
 
